@@ -1,0 +1,15 @@
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+
+jobs:
+  pyinstaller-build:
+    runs-on: windows-latest
+    steps:
+      - name: Create Executable
+        uses: Martin005/pyinstaller-action@v1.2.0
+        with:
+          python_ver: '3.12'
+          spec: 'main.py'
+          upload_exe_with_name: 'cur'
+          options: --onefile, --name "My App", --nowindowed
